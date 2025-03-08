@@ -40,10 +40,10 @@ body {
 .primero {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 1000px;
+  justify-content: space-between; 
   padding: 20px;
   height: 70px;
+  flex-wrap: wrap;
 }
 
 .primero p , .primero img{
@@ -97,17 +97,20 @@ body {
 .servicios {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
 }
   
 .servicio {
-  width: 30%;
+  width: 100%;
+  max-width: 350px;
 }
   
 .vista {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   padding: 0px 100px 200px;
 }
 
@@ -115,6 +118,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   padding: 0px 100px 100px 100px;
 
 }
@@ -133,12 +137,14 @@ body {
 
 .vista img,
 .seguridad img {
-  max-width: 40%;
+  max-width: 100%;
   height: auto;
+  flex: 1 1 45%;  
 }
 
 .contenido2 , .contenido3 {
   max-width: 45%;
+  flex: 1 1 45%;
 }
 
 .contenido2 p , .contenido3 p {
@@ -158,61 +164,75 @@ h2 {
 .precios {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  padding: 180px 10%;
-  position: relative;
+  align-items: center;
+  padding: 100px 10%;
 }
-  
+
+.contenido-precios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .precios h1 {
-  position: absolute;
-  top: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 0;
   font-size: 2.2rem;
   font-weight: bold;
-  margin-top: 75px;
+  margin-bottom: 80px;
+  text-align: center;
 }
-  
+
+.contenedor-planes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
 .plan {
   padding: 40px;
-  border-radius: 5px;
   text-align: center;
-  width: 17%;
+  width: 300px;
 }
-  
-.plan.destacado {
+
+.plan-destacado {
+  padding: 40px;
+  border-radius: 3px;
+  text-align: center;
+  width: 300px;
   background: #0e1b3d;
   color: white;
   transform: scale(1.05);
 }
-  
+
 .plan h3 {
   font-size: 1.5em;
   margin-bottom: 10px;
 }
-  
+
 .precio {
   font-size: 2em;
   font-weight: bold;
 }
-  
+
 .precio span {
   font-size: 0.6em;
   font-weight: normal;
   color: gray;
 }
-  
-.plan ul {
+
+.plan ul, .plan-destacado ul {
   list-style: none;
   padding: 0;
   margin: 20px 0;
 }
-  
-.plan ul li {
+
+.plan ul li , .plan-destacado ul li {
   margin: 10px 0;
 }
-  
+
 .plan .boton {
   display: inline-block;
   padding: 10px 15px;
@@ -223,12 +243,19 @@ h2 {
   text-decoration: none;
   font-weight: bold;
 }
-  
-.plan.destacado .boton {
+
+.plan-destacado .boton {
+  display: inline-block;
+  padding: 10px 15px;
   background: #00c889;
-  color: white;
+  color: #0e1b3d;
+  border-radius: 25px;
+  border: 2px solid black;
+  text-decoration: none;
+  font-weight: bold;
 }
-  
+
+
 .contacto {
   background: rgb(207, 207, 207);
   color: white;
@@ -238,12 +265,14 @@ h2 {
   
 .logos-empresas {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 115px;
+  gap: 30px;
+  padding: 20px;
 }
   
 .logos-empresas img {
-  max-width: 170px;
+  max-width: 120px;
   opacity: 1;
 }
 
@@ -292,6 +321,7 @@ h2 {
   padding: 10px;
   border: 2px solid #00c889;
   border-radius: 5px;
+  width: 100%;
 }
 
 .formulario-contacto input {
@@ -333,9 +363,8 @@ footer {
 
 .footer-content {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap: 900px;
 }
   
 footer p {
@@ -360,25 +389,20 @@ footer p {
 footer .social-icons a {
   text-decoration: none;
 }
+
 @media (max-width: 768px) {
-  .contenido1 {
-    width: 90%;
-    padding: 10px;
-  }
   .contenido1 h1 {
     font-size: 2.5rem;
   }
   .primero {
     flex-direction: column;
-    gap: 20px;
-  }
-  .primero img {
-    width: 60px;
-    height: 60px;
+    align-items: center;
+    text-align: center;
   }
   .vista, .seguridad {
     flex-direction: column;
     padding: 20px;
+    text-align: center;
   }
   .vista img, .seguridad img {
     max-width: 90%;
@@ -391,68 +415,47 @@ footer .social-icons a {
     align-items: center;
     padding: 50px 5%;
   }
-  .plan {
-    width: 80%;
-  }
-
-  /* Mejora de logos */
   .logos-empresas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     gap: 15px;
-    padding: 20px;
   }
   .logos-empresas img {
     max-width: 80px;
-    height: auto;
   }
-
-  /* Ajuste del footer y copyright */
-  .footer {
-    text-align: center;
-    padding: 20px;
+  .footer-content {
+    flex-direction: column;
+    gap: 20px;
   }
-  .copyright {
-    font-size: 14px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  /* Ajuste del formulario de contacto */
   .formulario-contacto {
+    width: 100%;
+    padding: 0 5%;
+    box-sizing: border-box;
     flex-direction: column;
     align-items: center;
+  }
+  .formulario-contacto form {
+    width: 100%;
+    max-width: 400px;
+  }
+  .formulario-contacto input,
+  .formulario-contacto textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box; /* Evita que los bordes aumenten el tamaño */
   }
   .contacto-info, .formulario-contacto form {
     width: 90%;
   }
 }
 
-
 @media (min-width: 769px) and (max-width: 1366px) {
   .contenido1 {
     width: 85%;
-  }
-  .primero {
-    gap: 500px;
-  }
-  .vista, .seguridad {
-    padding: 50px;
   }
   .vista img, .seguridad img {
     max-width: 50%;
   }
   .contenido2, .contenido3 {
     max-width: 50%;
-  }
-  .precios {
-    padding: 120px 10%;
-  }
-  .plan {
-    width: 25%;
   }
   .logos-empresas {
     gap: 50px;
@@ -463,26 +466,13 @@ footer .social-icons a {
   .contenido1 {
     width: 80%;
   }
-  .primero {
-    gap: 1000px;
-  }
-  .vista, .seguridad {
-    padding: 100px;
-  }
   .vista img, .seguridad img {
     max-width: 40%;
   }
   .contenido2, .contenido3 {
     max-width: 45%;
   }
-  .precios {
-    padding: 180px 10%;
-  }
-  .plan {
-    width: 17%;
-  }
   .logos-empresas {
-    gap: 115px;
+    gap: 80px;
   }
 }
-
